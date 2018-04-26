@@ -8,9 +8,9 @@ var schema = new mongoose.Schema({
 	description: { type: String },
 	created: { type: Number, default: Date.now() },
 	// Relations
-	listId: { type: ObjectId, required: true },
+	listId: { type: ObjectId, required: true, ref: models.list.name },
 	// additional Object ID needed for schema.pre('remove') cascading delete:
-	boardId: { type: ObjectId, required: true }
+	boardId: { type: ObjectId, required: true, ref: models.board.name }
 });
 
 schema.pre('remove', function (next) {

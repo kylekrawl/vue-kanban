@@ -9,7 +9,7 @@ var schema = new mongoose.Schema({
 	description: { type: String },
 	created: { type: Number, default: Date.now() },
 	// Relations
-	boardId: { type: ObjectId, required: true } // boardId: { type: ObjectId, ref: models.board, required: true }
+	boardId: { type: ObjectId, required: true, ref: models.board.name } // boardId: { type: ObjectId, ref: models.board, required: true }
 });
 
 schema.pre('remove', function (next) {
